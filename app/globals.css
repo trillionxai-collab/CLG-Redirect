@@ -1,0 +1,306 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  overflow: hidden;
+  color: #fff;
+  background: #17425f;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.landing {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+  min-height: 520px;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 69% 14%, rgba(174, 239, 205, 0.58) 0%, rgba(129, 220, 194, 0.2) 30%, transparent 57%),
+    radial-gradient(ellipse at 82% 83%, rgba(74, 194, 168, 0.64) 0%, transparent 46%),
+    linear-gradient(133deg, #68c9b5 0%, #49b2ab 33%, #287992 66%, #173b5d 100%);
+}
+
+.landing::before {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  background: radial-gradient(ellipse at 52% 49%, transparent 18%, rgba(11, 47, 73, 0.15) 100%);
+  content: "";
+  pointer-events: none;
+}
+
+.brand-mark,
+.message,
+.benefits,
+.botanical {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.brand-mark {
+  top: calc(env(safe-area-inset-top, 0px) + 3.5%);
+  left: 50%;
+  width: 130px;
+  transform: translateX(-50%);
+}
+
+.brand-mark img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 1px 1px rgba(13, 57, 71, 0.08));
+}
+
+.message {
+  top: 34.5%;
+  left: 50%;
+  width: 100%;
+  text-align: center;
+  transform: translateX(-50%);
+}
+
+.message h1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  font-family: "Bodoni 72", Didot, "Times New Roman", Georgia, serif;
+  font-size: 42px;
+  font-weight: 400;
+  line-height: 1.08;
+}
+
+.message h1 span {
+  display: block;
+}
+
+.message h1 .italic {
+  font-style: italic;
+}
+
+.shop-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 58%;
+  max-width: 424px;
+  height: 35px;
+  margin: 24px auto 0;
+  border: 1px solid rgba(255, 255, 255, 0.92);
+  border-radius: 999px;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.benefits {
+  right: 5.4%;
+  bottom: max(13.5%, calc(env(safe-area-inset-bottom, 0px) + 28px));
+  left: 5.4%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.benefit {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.benefit-icon {
+  display: grid;
+  width: 50px;
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.84);
+  border-radius: 50%;
+}
+
+.benefit-icon svg {
+  width: 25px;
+  height: 25px;
+}
+
+.benefit-label {
+  max-width: 100%;
+  margin-top: 9px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.35;
+  text-wrap: balance;
+}
+
+.botanical {
+  width: 126px;
+  height: 194px;
+  background: url("/images/botanical-sprig.svg") center / contain no-repeat;
+  opacity: 0.3;
+}
+
+.botanical-top-left {
+  top: -42px;
+  left: -44px;
+  transform: rotate(-35deg);
+}
+
+.botanical-top-right {
+  top: -45px;
+  right: -40px;
+  transform: scaleX(-1) rotate(-30deg);
+}
+
+.botanical-mid-right {
+  top: 39%;
+  right: -67px;
+  width: 156px;
+  height: 240px;
+  transform: rotate(28deg);
+  opacity: 0.38;
+}
+
+.botanical-bottom-left {
+  bottom: -55px;
+  left: -49px;
+  width: 148px;
+  height: 226px;
+  transform: rotate(30deg);
+  opacity: 0.35;
+}
+
+.botanical-bottom-right {
+  right: -58px;
+  bottom: -51px;
+  transform: scaleX(-1) rotate(30deg);
+  opacity: 0.36;
+}
+
+.full-page-link {
+  position: absolute;
+  z-index: 5;
+  inset: 0;
+  display: block;
+  border-radius: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.full-page-link:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.95);
+  outline-offset: -7px;
+}
+
+@media (max-width: 375px) {
+  .message h1 {
+    font-size: 39px;
+  }
+
+  .shop-button {
+    width: 61%;
+    margin-top: 20px;
+    font-size: 15px;
+  }
+
+  .benefits {
+    right: 3.5%;
+    left: 3.5%;
+    gap: 3px;
+  }
+
+  .benefit-label {
+    font-size: 10px;
+  }
+}
+
+@media (min-width: 700px) {
+  .brand-mark {
+    width: 170px;
+  }
+
+  .message h1 {
+    font-size: 72px;
+  }
+
+  .shop-button {
+    height: 58px;
+    margin-top: 31px;
+    font-size: 29px;
+  }
+
+  .benefits {
+    right: max(7%, calc((100% - 660px) / 2));
+    bottom: max(11%, calc(env(safe-area-inset-bottom, 0px) + 34px));
+    left: max(7%, calc((100% - 660px) / 2));
+    gap: 24px;
+  }
+
+  .benefit-icon {
+    width: 72px;
+  }
+
+  .benefit-icon svg {
+    width: 34px;
+    height: 34px;
+  }
+
+  .benefit-label {
+    margin-top: 12px;
+    font-size: 15px;
+  }
+}
+
+@media (max-height: 650px) {
+  .message {
+    top: 28%;
+  }
+
+  .message h1 {
+    font-size: 36px;
+    line-height: 1.02;
+  }
+
+  .shop-button {
+    height: 32px;
+    margin-top: 15px;
+  }
+
+  .benefits {
+    bottom: max(4%, calc(env(safe-area-inset-bottom, 0px) + 18px));
+  }
+
+  .benefit-icon {
+    width: 42px;
+  }
+
+  .benefit-label {
+    margin-top: 6px;
+    font-size: 9px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+  }
+}
