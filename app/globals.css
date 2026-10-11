@@ -10,9 +10,9 @@ body {
 }
 
 body {
-  overflow: hidden;
-  color: #fff;
-  background: #17425f;
+  overflow-x: hidden;
+  color: #f3fff8;
+  background: #013c4a;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -20,179 +20,166 @@ body {
 .landing {
   position: relative;
   isolation: isolate;
-  width: 100%;
-  height: 100vh;
-  height: 100svh;
-  min-height: 520px;
+  display: grid;
+  min-height: 100vh;
+  min-height: 100svh;
+  place-items: center;
   overflow: hidden;
+  padding: max(20px, env(safe-area-inset-top, 0px)) 20px max(24px, env(safe-area-inset-bottom, 0px));
   background:
-    radial-gradient(ellipse at 69% 14%, rgba(174, 239, 205, 0.58) 0%, rgba(129, 220, 194, 0.2) 30%, transparent 57%),
-    radial-gradient(ellipse at 82% 83%, rgba(74, 194, 168, 0.64) 0%, transparent 46%),
-    linear-gradient(133deg, #68c9b5 0%, #49b2ab 33%, #287992 66%, #173b5d 100%);
+    radial-gradient(ellipse at 88% 8%, rgba(153, 242, 202, 0.72) 0%, rgba(2, 139, 119, 0.48) 25%, transparent 57%),
+    radial-gradient(ellipse at 18% 88%, rgba(1, 60, 74, 0.98) 0%, rgba(1, 60, 74, 0.72) 32%, transparent 69%),
+    linear-gradient(135deg, #013c4a 0%, #025d68 42%, #028b77 76%, #70dfb4 100%);
 }
 
 .landing::before {
   position: absolute;
   z-index: 0;
   inset: 0;
-  background: radial-gradient(ellipse at 52% 49%, transparent 18%, rgba(11, 47, 73, 0.15) 100%);
+  background-image: url("/images/hemp%20leaf.png"), url("/images/hemp%20leaf.png");
+  background-repeat: no-repeat;
+  background-position: -48px 7%, calc(100% + 76px) 96%;
+  background-size: 190px auto, 245px auto;
   content: "";
+  opacity: 0.2;
   pointer-events: none;
 }
 
-.brand-mark,
-.message,
-.benefits,
-.botanical {
+.landing::after {
   position: absolute;
-  z-index: 1;
+  z-index: 0;
+  top: 40%;
+  right: -82px;
+  width: 140px;
+  height: 216px;
+  background: url("/images/hemp%20leaf.png") center / contain no-repeat;
+  content: "";
+  opacity: 0.08;
   pointer-events: none;
+  transform: scaleX(-1) rotate(-18deg);
+}
+
+.landing-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: min(100%, 760px);
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(8px, 1.5svh, 16px);
+  text-align: center;
+  pointer-events: none;
+}
+
+.brand-header {
+  display: grid;
+  width: min(100%, 760px);
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  flex: none;
 }
 
 .brand-mark {
-  top: calc(env(safe-area-inset-top, 0px) + 3.5%);
-  left: 50%;
-  width: 130px;
-  transform: translateX(-50%);
-}
-
-.brand-mark img {
   display: block;
-  width: 100%;
+  width: min(100%, 150px);
   height: auto;
-  filter: drop-shadow(0 1px 1px rgba(13, 57, 71, 0.08));
+  grid-column: 1;
+  justify-self: start;
+  filter: brightness(0) invert(1);
+  opacity: 0.94;
 }
 
-.message {
-  top: 34.5%;
-  left: 50%;
-  width: 100%;
-  text-align: center;
-  transform: translateX(-50%);
+.promotional-badge {
+  display: block;
+  width: clamp(210px, 31svh, 290px);
+  height: auto;
+  grid-column: 2;
+  flex: none;
+}
+
+.hemp-leaf {
+  display: block;
+  width: clamp(140px, 24svh, 230px);
+  height: clamp(140px, 24svh, 230px);
+  flex: none;
+  border: 5px solid #fff;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 0 1px rgba(235, 255, 245, 0.28), 0 12px 38px rgba(0, 34, 42, 0.3);
 }
 
 .message h1 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   margin: 0;
-  font-family: "Bodoni 72", Didot, "Times New Roman", Georgia, serif;
-  font-size: 42px;
+  color: #f3fff8;
+  font-family: "Bodoni MT", "Bodoni 72", Didot, "Palatino Linotype", Georgia, serif;
+  font-size: clamp(29px, 5.5vw, 43px);
   font-weight: 400;
-  line-height: 1.08;
+  line-height: 1.12;
 }
 
-.message h1 span {
-  display: block;
-}
-
-.message h1 .italic {
-  font-style: italic;
+.message p {
+  margin: 5px 0 0;
+  color: #d6f2e6;
+  font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+  font-size: clamp(14px, 2.2vw, 17px);
+  font-weight: 400;
+  line-height: 1.4;
 }
 
 .shop-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 58%;
-  max-width: 424px;
-  height: 35px;
-  margin: 24px auto 0;
-  border: 1px solid rgba(255, 255, 255, 0.92);
-  border-radius: 999px;
-  color: #fff;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 1;
+  display: grid;
+  width: min(100%, 250px);
+  min-height: 48px;
+  flex: none;
+  place-items: center;
+  border: 1px solid #dcf6e9;
+  border-radius: 3px;
+  background: #e1f7e9;
+  color: #013c4a;
+  font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
 }
 
-.benefits {
-  right: 5.4%;
-  bottom: max(13.5%, calc(env(safe-area-inset-bottom, 0px) + 28px));
-  left: 5.4%;
+.trust-marks {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: min(100%, 620px);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 8px;
-  margin: 0;
+  margin: 4px 0 0;
   padding: 0;
   list-style: none;
 }
 
-.benefit {
+.trust-mark {
   display: flex;
   min-width: 0;
   flex-direction: column;
   align-items: center;
-  text-align: center;
+  justify-content: center;
+  gap: 4px;
+  color: #effff6;
 }
 
-.benefit-icon {
+.trust-icon {
   display: grid;
-  width: 50px;
+  width: 32px;
   aspect-ratio: 1;
+  flex: none;
   place-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.84);
+  border: 1px solid rgba(226, 250, 237, 0.66);
   border-radius: 50%;
+  background: rgba(245, 255, 248, 0.1);
+  color: #d8f7e7;
 }
 
-.benefit-icon svg {
-  width: 25px;
-  height: 25px;
-}
-
-.benefit-label {
-  max-width: 100%;
-  margin-top: 9px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 11px;
-  font-weight: 400;
-  line-height: 1.35;
+.trust-label {
+  font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.3;
+  text-align: center;
   text-wrap: balance;
-}
-
-.botanical {
-  width: 126px;
-  height: 194px;
-  background: url("/images/botanical-sprig.svg") center / contain no-repeat;
-  opacity: 0.3;
-}
-
-.botanical-top-left {
-  top: -42px;
-  left: -44px;
-  transform: rotate(-35deg);
-}
-
-.botanical-top-right {
-  top: -45px;
-  right: -40px;
-  transform: scaleX(-1) rotate(-30deg);
-}
-
-.botanical-mid-right {
-  top: 39%;
-  right: -67px;
-  width: 156px;
-  height: 240px;
-  transform: rotate(28deg);
-  opacity: 0.38;
-}
-
-.botanical-bottom-left {
-  bottom: -55px;
-  left: -49px;
-  width: 148px;
-  height: 226px;
-  transform: rotate(30deg);
-  opacity: 0.35;
-}
-
-.botanical-bottom-right {
-  right: -58px;
-  bottom: -51px;
-  transform: scaleX(-1) rotate(30deg);
-  opacity: 0.36;
 }
 
 .full-page-link {
@@ -205,102 +192,134 @@ body {
 }
 
 .full-page-link:focus-visible {
-  outline: 3px solid rgba(255, 255, 255, 0.95);
+  outline: 3px solid #d8f7e7;
   outline-offset: -7px;
 }
 
-@media (max-width: 375px) {
-  .message h1 {
-    font-size: 39px;
+@media (max-width: 699px) {
+  .landing {
+    place-items: start center;
   }
 
-  .shop-button {
-    width: 61%;
-    margin-top: 20px;
-    font-size: 15px;
+  .brand-header {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
   }
 
-  .benefits {
-    right: 3.5%;
-    left: 3.5%;
-    gap: 3px;
+  .brand-mark {
+    width: min(100%, 84px);
   }
 
-  .benefit-label {
-    font-size: 10px;
+  .promotional-badge {
+    grid-column: 1;
+    justify-self: center;
   }
 }
 
 @media (min-width: 700px) {
-  .brand-mark {
-    width: 170px;
+  .landing {
+    padding: 28px 36px;
   }
 
-  .message h1 {
-    font-size: 72px;
+  .landing-content {
+    gap: clamp(10px, 1.6svh, 17px);
   }
 
-  .shop-button {
-    height: 58px;
-    margin-top: 31px;
-    font-size: 29px;
+  .trust-marks {
+    gap: 16px;
+    margin-top: 8px;
   }
 
-  .benefits {
-    right: max(7%, calc((100% - 660px) / 2));
-    bottom: max(11%, calc(env(safe-area-inset-bottom, 0px) + 34px));
-    left: max(7%, calc((100% - 660px) / 2));
-    gap: 24px;
-  }
-
-  .benefit-icon {
-    width: 72px;
-  }
-
-  .benefit-icon svg {
-    width: 34px;
-    height: 34px;
-  }
-
-  .benefit-label {
-    margin-top: 12px;
-    font-size: 15px;
+  .trust-mark {
+    gap: 7px;
   }
 }
 
-@media (max-height: 650px) {
-  .message {
-    top: 28%;
+@media (max-width: 360px) {
+  .landing {
+    padding-right: 14px;
+    padding-left: 14px;
   }
 
-  .message h1 {
-    font-size: 36px;
-    line-height: 1.02;
+  .trust-marks {
+    gap: 5px;
   }
 
-  .shop-button {
-    height: 32px;
-    margin-top: 15px;
+  .trust-mark {
+    gap: 6px;
   }
 
-  .benefits {
-    bottom: max(4%, calc(env(safe-area-inset-bottom, 0px) + 18px));
-  }
-
-  .benefit-icon {
-    width: 42px;
-  }
-
-  .benefit-label {
-    margin-top: 6px;
+  .trust-label {
     font-size: 9px;
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    scroll-behavior: auto !important;
+@media (max-width: 699px) and (max-height: 700px) {
+  .landing {
+    padding-top: max(12px, env(safe-area-inset-top, 0px));
+    padding-bottom: max(14px, env(safe-area-inset-bottom, 0px));
+  }
+
+  .landing-content {
+    gap: 5px;
+  }
+
+  .promotional-badge {
+    width: 150px;
+  }
+
+  .hemp-leaf {
+    width: 108px;
+    height: 108px;
+  }
+
+  .shop-button {
+    min-height: 42px;
+  }
+
+  .trust-marks {
+    gap: 4px;
+    margin-top: 0;
+  }
+
+  .trust-icon {
+    width: 26px;
+  }
+
+  .trust-label {
+    font-size: 10px;
+  }
+}
+
+@media (min-width: 700px) and (max-height: 700px) {
+  .landing {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  .landing-content {
+    gap: 6px;
+  }
+
+  .promotional-badge {
+    width: 220px;
+  }
+
+  .hemp-leaf {
+    width: 120px;
+    height: 120px;
+  }
+
+  .shop-button {
+    min-height: 42px;
+  }
+
+  .trust-marks {
+    gap: 6px;
+    margin-top: 2px;
+  }
+
+  .trust-icon {
+    width: 28px;
   }
 }

@@ -9,9 +9,9 @@
 
 The landing page links only to `/go`. The destination is read by `app/go/route.ts` on the server and is not exposed to the page or client bundle. The route returns a generic 503 response if the value is missing or not a valid HTTPS URL.
 
-## Logo asset
+## Landing page assets
 
-The supplied Cannalogic logo is stored at `public/cannalogic-logo.png`. To replace it with a higher-resolution official variant, keep the transparent PNG format, replace that file, and preserve its aspect ratio; the landing page uses the image without recoloring or cropping it.
+The landing page uses the official Cannalogic logo at `public/CL-logo-clr.png`, the Thampi Nagarjuna promotional badge at `public/TN BADGE COMPRESSED.png`, and the hemp-leaf image at `public/CANN LEAF COMPRESSED.png`. Keep the transparent PNG format for the logo and badge; the leaf image is displayed in a circular crop.
 
 ## Vercel deployment
 
