@@ -64,6 +64,7 @@ body {
   z-index: 1;
   display: flex;
   width: min(100%, 760px);
+  min-height: calc(100svh - 44px);
   flex-direction: column;
   align-items: center;
   gap: clamp(8px, 1.5svh, 16px);
@@ -108,6 +109,16 @@ body {
   box-shadow: 0 0 0 1px rgba(235, 255, 245, 0.28), 0 12px 38px rgba(0, 34, 42, 0.3);
 }
 
+.hero-content {
+  display: flex;
+  min-height: 0;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(8px, 1.5svh, 16px);
+}
+
 .message h1 {
   margin: 0;
   color: #f3fff8;
@@ -146,7 +157,7 @@ body {
   width: min(100%, 620px);
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 8px;
-  margin: 4px 0 0;
+  margin: auto 0 0;
   padding: 0;
   list-style: none;
 }
@@ -222,6 +233,7 @@ body {
   }
 
   .landing-content {
+    min-height: calc(100svh - 56px);
     gap: clamp(10px, 1.6svh, 17px);
   }
 
@@ -262,6 +274,11 @@ body {
 
   .landing-content {
     gap: 5px;
+    min-height: calc(100svh - max(12px, env(safe-area-inset-top, 0px)) - max(14px, env(safe-area-inset-bottom, 0px)));
+  }
+
+  .hero-content {
+    gap: 5px;
   }
 
   .promotional-badge {
@@ -298,6 +315,11 @@ body {
   }
 
   .landing-content {
+    min-height: calc(100svh - 32px);
+    gap: 6px;
+  }
+
+  .hero-content {
     gap: 6px;
   }
 

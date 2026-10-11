@@ -35,22 +35,24 @@ export default function Home() {
           />
         </div>
 
-        <Image
-          className="hemp-leaf"
-          src="/CANN%20LEAF%20COMPRESSED.png"
-          alt="A sunlit green hemp leaf"
-          width={1240}
-          height={1240}
-          priority
-          sizes="(max-width: 699px) 58vw, 330px"
-        />
+        <div className="hero-content">
+          <Image
+            className="hemp-leaf"
+            src="/CANN%20LEAF%20COMPRESSED.png"
+            alt="A sunlit green hemp leaf"
+            width={1240}
+            height={1240}
+            priority
+            sizes="(max-width: 699px) 58vw, 330px"
+          />
 
-        <section className="message" aria-label="Natural Healing for a healthier you">
-          <h1>Natural Healing</h1>
-          <p>for a healthier you</p>
-        </section>
+          <section className="message" aria-label="Natural Healing for a healthier you">
+            <h1>Natural Healing</h1>
+            <p>for a healthier you</p>
+          </section>
 
-        <div className="shop-button" aria-hidden="true">Shop Products</div>
+          <div className="shop-button" aria-hidden="true">Shop Products</div>
+        </div>
 
         <ul className="trust-marks" aria-label="Our commitments">
           {trustMarks.map(({ label, Icon }) => (
